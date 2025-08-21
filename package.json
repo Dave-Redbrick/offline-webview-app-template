@@ -1,0 +1,13 @@
+{
+  "scripts": {
+    "build": "node build.js",
+    "dev": "node dev.js",
+    "android": "cd mobile && npx react-native run-android",
+    "ios": "cd mobile && npx react-native run-ios"
+  },
+  "dependencies": {
+    "child_process": "^1.0.2",
+    "fs-extra": "^11.3.1",
+    "path": "^0.12.7"
+  }
+}
