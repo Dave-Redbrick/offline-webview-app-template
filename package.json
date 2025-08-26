@@ -2,8 +2,12 @@
   "scripts": {
     "build": "node build.js",
     "dev": "node dev.js",
-    "android": "cd mobile && npx react-native run-android",
-    "ios": "cd mobile && npx react-native run-ios"
+    "//--- Android ---//": "",
+    "android": "cd mobile && npm install && npx react-native run-android",
+    "//--- iOS ---//": "",
+    "ios": "cd mobile && npm install && npx react-native run-ios",
+    "//--- Full Clean ---//": "",
+    "clean": "cd mobile && cd android && ./gradlew clean && cd ../ && rm -rf node_modules package-lock.json"
   },
   "dependencies": {
     "child_process": "^1.0.2",

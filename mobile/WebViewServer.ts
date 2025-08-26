@@ -19,9 +19,22 @@ class WebViewServer {
     if (this.server) return this.url;
 
     if (Platform.OS === 'android' || Platform.OS === 'ios') {
-      this.server = new StaticServer(8080, 'assets/web', { localOnly: true });
-      this.url = await this.server.start();
-      return this.url;
+      try {
+        console.log('[WebViewServer] Starting server...'); // ◀️ 로그 추가
+
+        this.server = new StaticServer(8080, 'web', {
+          localOnly: true,
+        });
+
+        console.log(this.server); // ◀️ 서버 인스턴스 로그 추가
+
+        this.url = await this.server.start();
+
+        console.log('[WebViewServer] Server started at URL:', this.url); // ◀️ 로그 추가
+        return this.url;
+      } catch (error) {
+        console.error('[WebViewServer] Error starting server:', error); // ◀️ 에러 로그 추가
+      }
     }
     return null;
   }

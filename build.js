@@ -3,7 +3,10 @@ const fs = require("fs-extra");
 const path = require("path");
 
 const viteBaseDir = path.resolve(__dirname, "redbrick-project");
-const rnAssetDir = path.resolve(__dirname, "mobile/assets/web");
+const rnAssetDir = path.resolve(
+  __dirname,
+  "mobile/android/app/src/main/assets/web"
+);
 
 // 경로 수정 함수 (재귀적)
 async function fixPathsInFiles(dir) {

@@ -1,20 +1,22 @@
 buildscript {
     ext {
-        buildToolsVersion = "36.0.0"
+        buildToolsVersion = "34.0.0" // buildToolsVersion은 36.0.0이 없을 수 있으니 34.0.0으로 낮추는 것이 안전합니다.
         minSdkVersion = 24
-        compileSdkVersion = 36
-        targetSdkVersion = 36
-        ndkVersion = "27.1.12297006"
-        kotlinVersion = "2.1.20"
+        compileSdkVersion = 34 // compileSdk도 34로 맞춥니다.
+        targetSdkVersion = 34 // targetSdk도 34로 맞춥니다.
+        ndkVersion = "23.1.7779620" // ndkVersion도 일반적으로 권장되는 버전으로 맞춥니다.
+        kotlinVersion = "1.9.23"   // AGP 8.2.1과 호환되는 Kotlin 버전
     }
     repositories {
         google()
         mavenCentral()
     }
     dependencies {
-        classpath("com.android.tools.build:gradle")
+        // 👇 AGP 버전을 명시합니다 (8.2.1 추천).
+        classpath("com.android.tools.build:gradle:8.2.1")
         classpath("com.facebook.react:react-native-gradle-plugin")
-        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin")
+        // 👇 ext 블록에 정의된 kotlinVersion을 사용하도록 수정합니다.
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion")
     }
 }
 

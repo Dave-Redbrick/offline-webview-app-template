@@ -16,4 +16,5 @@ const innerProject = subfolders[0]; // 기준에 맞는 폴더 선택. 필요하
 const projectPath = path.join(redbrickDir, innerProject);
 
 console.log(`🟢 inner_project: ${innerProject}에서 Vite dev 서버 실행`);
+execSync("npm install", { stdio: "inherit" });
 execSync("npm run dev", { cwd: projectPath, stdio: "inherit" });
